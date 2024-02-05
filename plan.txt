@@ -6,26 +6,27 @@ components:
     -facility minerals
     -space-cart
 
-transient:
+transaction:
     -facility mineral
     -planet
     
 events:
 on choosing a governor:
     -update planet component
-    -update transient planet
+    -update transaction planet
 
 on choosing facility:
+    -update current facility in facility minerals
     -update facility minerals component
 
 on choosing mineral:
     -update space cart component
-    -update transient facility mineral
+    -update transaction facility mineral
 
 on purchase mineral:
     -update planet component
     -update facility minerals component
-    -update database in transient
+    -update database in transaction
         -subtract facility mineral tons by 1
         -get planet mineral with facility mineral's mineral id and with planet id
         -add 1 to planet mineral tons

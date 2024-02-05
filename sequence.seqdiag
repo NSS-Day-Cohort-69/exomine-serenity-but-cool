@@ -4,22 +4,42 @@ dropdowns -> governors: get governors HTML
 governors -> database: get governors
 database -> governors: here's governors
 governors -> dropdowns: here's governors HTML
-dropdowns -> facility: get facility HTML
-facility -> database: get facilities
-database -> facility: here's facilities
-facility -> dropdowns: here's facilities HTML
+dropdowns -> facilities: get facilities HTML
+facilities -> database: get facilities
+database -> facilities: here's facilities
+facilities -> dropdowns: here's facilities HTML
 dropdowns -> main: here's dropdowns HTML
 
 main -> planet: get planets HTML
 planet -> database: get planets
 database -> planet: here's planets
+planet -> transaction: get selected planet
+transaction -> planet: here's selected planet
 planet -> main: here's planets HTML
 
 main -> facility minerals: get facility minerals HTML
 facility minerals -> database: get facility minerals
-database -> facility minerals: here's facilities
+database -> facility minerals: here's facility minerals
 facility minerals -> main: here's facility minerals HTML
 
 main -> space cart: get space cart HTML
-
 space cart -> main: here's space cart HTML
+
+note over governors: on governor chosen
+governors -> transaction: update planet
+governors -> main: render
+
+note over facilities: on facility chosen
+facilities -> facility minerals: update current facility
+facilities -> main: render
+
+note over facility minerals: on mineral chosen:
+facility minerals -> transaction: update facility mineral
+facility minerals -> main: render
+
+note over space cart: on purchase minerals:
+facility minerals -> transaction: update database
+facility minerals -> main: render
+
+note over transaction: subtract one from facility mineral tons
+note over transaction: add one of mineral tons in planet mineral for current planet
