@@ -1,0 +1,31 @@
+components:
+    -dropdowns
+        -governor
+        -facility
+    -planet
+    -facility minerals
+    -space-cart
+
+transient:
+    -facility mineral
+    -planet
+    
+events:
+on choosing a governor:
+    -update planet component
+    -update transient planet
+
+on choosing facility:
+    -update facility minerals component
+
+on choosing mineral:
+    -update space cart component
+    -update transient facility mineral
+
+on purchase mineral:
+    -update planet component
+    -update facility minerals component
+    -update database in transient
+        -subtract facility mineral tons by 1
+        -get planet mineral with facility mineral's mineral id and with planet id
+        -add 1 to planet mineral tons

@@ -1,0 +1,25 @@
+main -> dropdowns: get dropdowns HTML
+
+dropdowns -> governors: get governors HTML
+governors -> database: get governors
+database -> governors: here's governors
+governors -> dropdowns: here's governors HTML
+dropdowns -> facility: get facility HTML
+facility -> database: get facilities
+database -> facility: here's facilities
+facility -> dropdowns: here's facilities HTML
+dropdowns -> main: here's dropdowns HTML
+
+main -> planet: get planets HTML
+planet -> database: get planets
+database -> planet: here's planets
+planet -> main: here's planets HTML
+
+main -> facility minerals: get facility minerals HTML
+facility minerals -> database: get facility minerals
+database -> facility minerals: here's facilities
+facility minerals -> main: here's facility minerals HTML
+
+main -> space cart: get space cart HTML
+
+space cart -> main: here's space cart HTML
