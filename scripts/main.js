@@ -1,7 +1,15 @@
 import { getGovernorsHTML } from "./governors/governorComponent.js"
 
-const container = document.querySelector(`#`)
+const render = async () =>
+{
+    // the following is temp code to test that getGovernorsHTML works.
 
-const governorsHTML = await getGovernorsHTML()
+    /*
+    const dropdowns = document.querySelector(`.dropdowns`)
 
-debugger
+    const governorsHTML = await getGovernorsHTML()
+    dropdowns.innerHTML += governorsHTML
+    */
+}
+
+render()
