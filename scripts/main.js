@@ -1,3 +1,15 @@
-import { getGovernors } from "./governors/governorData.js"
+import { getGovernorsHTML } from "./governors/governorComponent.js"
 
-getGovernors()
+const render = async () =>
+{
+    // the following is temp code to test that getGovernorsHTML works. Uncomment if testing feature branch
+
+    /*
+    const dropdowns = document.querySelector(`.dropdowns`)
+
+    const governorsHTML = await getGovernorsHTML()
+    dropdowns.innerHTML += governorsHTML
+    */
+}
+
+render()
