@@ -1,3 +1,7 @@
-import { getGovernors } from "./governors/governorData.js"
+import { getGovernorsHTML } from "./governors/governorComponent.js"
 
-getGovernors()
+const container = document.querySelector(`#`)
+
+const governorsHTML = await getGovernorsHTML()
+
+debugger
