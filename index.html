@@ -11,13 +11,24 @@
 <body>
 
     <main>
-        <label for="facility-names" class="facility-label">Choose a facility</label> 
-        <select name="facility-names" class="facilities-dropdown"> 
-            <option value="facility1" class="facilities-dropdown--option">Facility1</option> 
-            <option value="facility2" class="facilities-dropdown--option">Facility2</option> 
-            <option value="facility3" class="facilities-dropdown--option">Facilit3</option> 
-            <option value="facility4" class="facilities-dropdown--option">Facility4</option> 
+        <div class="governor">
+            <label for="governor--names" class="governor--label">Choose a governor</label>
+            <select name="governor--names" class="governor--select">
+                <option class="governor--option" value="governor1">Governor 1</option>
+                <option class="governor--option" value="governor2">Governor 2</option>
+                <option class="governor--option" value="governor 3">Governor 3</option>
+                <option class="governor--option" value="governor4">Governor 4</option>
+            </select>
+        </div>
+
+        <label for="facility-names" class="facility-label">Choose a facility</label>
+        <select name="facility-names" class="facilities-dropdown">
+            <option value="facility1" class="facilities-dropdown--option">Facility1</option>
+            <option value="facility2" class="facilities-dropdown--option">Facility2</option>
+            <option value="facility3" class="facilities-dropdown--option">Facilit3</option>
+            <option value="facility4" class="facilities-dropdown--option">Facility4</option>
         </select>
+
         <div class="planet">
             <h2 class="planet--name">Europa Minerals</h2>
             <div class="planet--mineralsDiv">
@@ -26,10 +37,7 @@
             </div>
 
         </div>
-        <div class="space-cart">
-            <h3 class="space-cart--name">Space Cart</h3>
-            <button class="space-cart--button">Purchase Mineral</button>
-        </div>
+
         <div class="facility-minerals">
             <h2>Facility Minerals</h2>
             <div class="facility-minerals--mineralsDiv">
@@ -43,6 +51,11 @@
                 </div>
             </div>
         </div>
+        <div class="space-cart">
+            <h3 class="space-cart--name">Space Cart</h3>
+            <button class="space-cart--button">Purchase Mineral</button>
+        </div>
+
     </main>
 
     <script type="module" src="./scripts/main.js"></script>
