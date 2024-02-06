@@ -6,56 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exomine</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
-
     <main>
-        <div class="governor">
-            <label for="governor--names" class="governor--label">Choose a governor</label>
-            <select name="governor--names" class="governor--select">
-                <option class="governor--option" value="governor1">Governor 1</option>
-                <option class="governor--option" value="governor2">Governor 2</option>
-                <option class="governor--option" value="governor 3">Governor 3</option>
-                <option class="governor--option" value="governor4">Governor 4</option>
-            </select>
-        </div>
-
-        <label for="facility-names" class="facility-label">Choose a facility</label>
-        <select name="facility-names" class="facilities-dropdown">
-            <option value="facility1" class="facilities-dropdown--option">Facility1</option>
-            <option value="facility2" class="facilities-dropdown--option">Facility2</option>
-            <option value="facility3" class="facilities-dropdown--option">Facilit3</option>
-            <option value="facility4" class="facilities-dropdown--option">Facility4</option>
-        </select>
-
-        <div class="planet">
-            <h2 class="planet--name">Europa Minerals</h2>
-            <div class="planet--mineralsDiv">
-                <span class="planet--mineral">2 tons iron</span>
-                <span class="planet--mineral">1 ton Chromium</span>
-            </div>
-
-        </div>
-
-        <div class="facility-minerals">
-            <h2>Facility Minerals</h2>
-            <div class="facility-minerals--mineralsDiv">
-                <div class="facility-minerals--mineral">
-                    <input type="radio" id="iron" name="mineral" value="iron">
-                    <label for="iron">10 tons of Iron</label>
+        <h1>Solar System Mining Marketplace</h1>
+        <div class="dropdowns-planet">
+            <div class="dropdowns">
+                <div class="facilities">
+                    <label for="facility-names" class="facility-label">Choose a facility</label> 
+                    <select name="facility-names" class="facilities--facilities-dropdown"> 
+                        <option value="facility1" class="facilities--option">Facility1</option> 
+                        <option value="facility2" class="facilities--option">Facility2</option> 
+                        <option value="facility3" class="facilities--option">Facilit3</option> 
+                        <option value="facility4" class="facilities--option">Facility4</option> 
+                    </select>
                 </div>
-                <div class="facility-minerals--mineral">
-                    <input type="radio" id="malybdenum" name="mineral" value="iron">
-                    <label for="malybdenum">16 tons of Malybdenum</label>
+                <div class="governor">
+                    <label for="governor--names" class="governor--label">Choose a governor</label>
+                    <select name="governor--names" class="governor--select">
+                        <option class="governor--option" value="governor1">Governor 1</option>
+                        <option class="governor--option" value="governor2">Governor 2</option>
+                        <option class="governor--option" value="governor 3">Governor 3</option>
+                        <option class="governor--option" value="governor4">Governor 4</option>
+                    </select>
                 </div>
             </div>
+            <div class="planet">
+                <h2 class="planet--name">Europa Minerals</h2>
+                <ul class="planet--mineralsDiv">
+                    <li class="planet--mineral">2 tons iron</span>
+                    <li class="planet--mineral">1 ton Chromium</span>
+                </ul>
+            </div>
         </div>
-        <div class="space-cart">
-            <h3 class="space-cart--name">Space Cart</h3>
-            <button class="space-cart--button">Purchase Mineral</button>
+        <div class="minerals-cart">
+            <div class="facility-minerals">
+                <h2 class="facility-minerals--header">Facility Minerals</h2>
+                <div class="facility-minerals--mineralsDiv">
+                    <div class="facility-minerals--mineral">
+                        <input type="radio" id="iron" name="mineral" value="iron">
+                        <label for="iron">10 tons of Iron</label>
+                    </div>
+                    <div class="facility-minerals--mineral">
+                        <input type="radio" id="malybdenum" name="mineral" value="iron">
+                        <label for="malybdenum">16 tons of Malybdenum</label>
+                    </div>
+                </div>
+            </div>
+            <div class="space-cart">
+                <h3 class="space-cart--header">Space Cart</h3>
+                <button class="space-cart--button">Purchase Mineral</button>
+            </div>
         </div>
-
     </main>
 
     <script type="module" src="./scripts/main.js"></script>

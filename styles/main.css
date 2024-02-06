@@ -1,0 +1,58 @@
+.dropdowns-planet
+{
+    display: flex;
+}
+
+.dropdowns
+{
+    margin: 3%;
+}
+
+.facilities
+{
+    margin-bottom: 30%;
+}
+
+.planet
+{
+    border-style: solid;
+    margin: 3%;
+    padding: 2%;
+}
+
+.planet--mineralsDiv
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.minerals-cart
+{
+    display: flex;
+}
+
+.facility-minerals
+{
+    border-style: dotted;
+    border-color: red;
+    margin: 2%;
+    padding: 2%;
+}
+
+.space-cart
+{
+    border-style: dotted;
+    border-color: red;
+    margin: 2%;
+    padding: 2%;
+}
+
+.facility-minerals--header
+{
+    margin-top: 0;
+}
+
+.space-cart--header
+{
+    margin-top: 0;
+}
