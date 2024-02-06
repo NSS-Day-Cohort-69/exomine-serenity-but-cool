@@ -13,11 +13,11 @@ const render = async () =>
     */
 
     //this is to test facilities HTML
-    /*
+    
     const facilitiesHTML = await getFacilitiesHTML()
     const dropdownElement = document.querySelector(".dropdowns")
     dropdownElement.innerHTML = facilitiesHTML  
-    */
+    debugger
 }
 
 render()
