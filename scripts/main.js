@@ -2,7 +2,7 @@ import { getGovernorsHTML } from "./governors/governorComponent.js"
 
 const render = async () =>
 {
-    // the following is temp code to test that getGovernorsHTML works.
+    // the following is temp code to test that getGovernorsHTML works. Uncomment if testing feature branch
 
     /*
     const dropdowns = document.querySelector(`.dropdowns`)
