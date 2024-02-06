@@ -1,4 +1,4 @@
-import { getFacilities } from "./facilityData.js"
+import { getFacilities } from "./facilitiesData.js"
 
 const facilities = getFacilities()
 
