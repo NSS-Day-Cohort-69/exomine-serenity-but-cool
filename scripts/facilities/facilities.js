@@ -2,7 +2,8 @@ import { getFacilities } from "./facilityData.js"
 
 const facilities = getFacilities()
 
-const facilitiesHTML = ()  => {
+export const getFacilitiesHTML = async  ()  => {
+    const facilities = await getFacilities()
     let facilitiesString = `
         <div class="facilities">
             <label for="facility-names" class="facility-label">Choose a facility</label>
@@ -18,5 +19,3 @@ const facilitiesHTML = ()  => {
         </div>`
     return facilitiesString
 }
-
-
