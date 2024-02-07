@@ -161,10 +161,10 @@
   ],
   "planetMinerals": [
     {
-      "id": 1,
-      "planetId": 1,
-      "mineralId": 1,
-      "mineralTons": 501
+      "id": 2,
+      "facilityId": 1,
+      "mineralId": 2,
+      "mineralTons": 200
     },
     {
       "id": 2,
