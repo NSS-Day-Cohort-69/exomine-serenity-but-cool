@@ -2,10 +2,16 @@ import { getFacilitiesHTML } from "./facilities/facilities.js"
 import { getFacilityMineralsHTML } from "./facility-minerals/facilityMineralsComponent.js"
 import { getFacilityMinerals } from "./facility-minerals/facilityMineralsData.js"
 import { getGovernorsHTML } from "./governors/governorComponent.js"
+import { getDropDownHTML } from "./dropDowns.js"
 
 const render = async () =>
 {
-    // the following is temp code to test that getGovernorsHTML works. Uncomment if testing feature branch
+    //this is for drop downs test
+    /*
+    const dropDownsHTML = await getDropDownHTML()
+    const dropdownsPlanetElement = document.querySelector(".dropdowns-planet")
+    dropdownsPlanetElement.innerHTML = dropDownsHTML
+    */
 
     /*
     const dropdowns = document.querySelector(`.dropdowns`)
