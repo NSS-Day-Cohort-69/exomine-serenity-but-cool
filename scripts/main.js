@@ -1,5 +1,6 @@
 import { getFacilitiesHTML } from "./facilities/facilities.js"
 import { getGovernorsHTML } from "./governors/governorComponent.js"
+import { getSpaceCartHTML } from "./spaceCart/spaceCartComponent.js"
 
 const render = async () =>
 {
@@ -20,6 +21,10 @@ const render = async () =>
     const dropdownElement = document.querySelector(".dropdowns")
     dropdownElement.innerHTML = facilitiesHTML  
     */
+
+    const spaceCartContainer = document.querySelector(".minerals-cart")
+    const spaceCartHTML = await getSpaceCartHTML()
+    spaceCartContainer.innerHTML = spaceCartHTML
 }
 
 render()
