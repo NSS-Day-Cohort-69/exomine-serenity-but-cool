@@ -2,7 +2,10 @@ import { getDropDownHTML } from "./drop-downs.js"
 
 const render = async () =>
 {
-    getDropDownHTML()
+    const dropDownsHTML = await getDropDownHTML()
+    const  dropdownsPlanetElement = document.querySelector(".dropdowns-planet")
+    dropdownsPlanetElement.innerHTML = dropDownsHTML
+
 }
 
 render()
