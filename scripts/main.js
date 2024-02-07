@@ -40,9 +40,11 @@ const render = async () =>
     facilityMineralElement.innerHTML += spaceCart
     */
 
+    /*
     updateFacilityMineral({ id: 1, facilityId: 1, mineralId: 1, mineralTons: 100 })
     updatePlanetMineral({ id: 1, planetId: 1, mineralId: 1, mineralTons: 500 })
     doTransaction()
+    */
 }
 
 render()
