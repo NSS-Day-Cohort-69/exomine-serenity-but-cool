@@ -3,6 +3,7 @@ import { getFacilityMineralsHTML } from "./facility-minerals/facilityMineralsCom
 import { getFacilityMinerals } from "./facility-minerals/facilityMineralsData.js"
 import { getGovernorsHTML } from "./governors/governorComponent.js"
 import { getDropDownHTML } from "./dropDowns.js"
+import { doTransaction, updateFacilityMineral, updatePlanetMineral } from "./transaction.js"
 
 const render = async () =>
 {
@@ -38,6 +39,10 @@ const render = async () =>
     facilityMineralElement.innerHTML = facilityMineralsHTML
     facilityMineralElement.innerHTML += spaceCart
     */
+
+    updateFacilityMineral({ id: 1, facilityId: 1, mineralId: 1, mineralTons: 100 })
+    updatePlanetMineral({ id: 1, planetId: 1, mineralId: 1, mineralTons: 500 })
+    doTransaction()
 }
 
 render()

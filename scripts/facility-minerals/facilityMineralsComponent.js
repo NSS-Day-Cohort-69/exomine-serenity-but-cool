@@ -55,4 +55,3 @@ export const setCurrentFacility = (newFacilityId) =>
 {
     currentFacilityId = newFacilityId
 }
-
