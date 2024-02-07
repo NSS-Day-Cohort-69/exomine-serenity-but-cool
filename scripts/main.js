@@ -1,3 +1,4 @@
+import { getFacilitiesHTML } from "./facilities/facilities.js"
 import { getGovernorsHTML } from "./governors/governorComponent.js"
 
 const render = async () =>
@@ -9,6 +10,15 @@ const render = async () =>
 
     const governorsHTML = await getGovernorsHTML()
     dropdowns.innerHTML += governorsHTML
+    */
+
+    
+    //this is to test facilities HTML
+    
+    /*
+    const facilitiesHTML = await getFacilitiesHTML()
+    const dropdownElement = document.querySelector(".dropdowns")
+    dropdownElement.innerHTML = facilitiesHTML  
     */
 }
 
