@@ -1,50 +1,200 @@
 {
-    "governors": [
-        { "id": 1, "name": "Whiskers McFluff", "active": true, "planetId": 1 },
-        { "id": 2, "name": "Captain Quackington", "active": false, "planetId": 2 },
-        { "id": 3, "name": "Professor Wobblepants", "active": true, "planetId": 3 },
-        { "id": 4, "name": "Baron Von Bubbles", "active": false, "planetId": 1 },
-        { "id": 5, "name": "Sir Snugglebottom", "active": true, "planetId": 2 },
-        { "id": 6, "name": "Doctor Wiggletoes", "active": false, "planetId": 3 }
-    ],
-    "facilities": [
-        { "id": 1, "name": "Fluffy Cloud Factory", "active": true },
-        { "id": 2, "name": "Bubblegum Lab", "active": false },
-        { "id": 3, "name": "Rainbow Springs Center", "active": true },
-        { "id": 4, "name": "Silly Sausage Station", "active": false },
-        { "id": 5, "name": "Giggles and Grins Facility", "active": true },
-        { "id": 6, "name": "Whoopee Cushion Factory", "active": false }
-    ],
-    "minerals": [
-        { "id": 1, "name": "Giggleite" },
-        { "id": 2, "name": "Snortium" },
-        { "id": 3, "name": "Chucklestone" },
-        { "id": 4, "name": "Lolite" },
-        { "id": 5, "name": "Tickletonite" },
-        { "id": 6, "name": "Hilarium" }
-    ],
-    "planets": [
-        { "id": 1, "name": "Laughalotia" },
-        { "id": 2, "name": "Jokelandia" },
-        { "id": 3, "name": "GiggleSphere" },
-        { "id": 4, "name": "Smiletopia" },
-        { "id": 5, "name": "Chuckleville" },
-        { "id": 6, "name": "Snickerland" }
-    ],
-    "facilityMinerals": [
-        { "id": 1, "facilityId": 1, "mineralId": 1, "mineralTons": 100 },
-        { "id": 2, "facilityId": 1, "mineralId": 2, "mineralTons": 200 },
-        { "id": 3, "facilityId": 2, "mineralId": 2, "mineralTons": 150 },
-        { "id": 4, "facilityId": 2, "mineralId": 3, "mineralTons": 120 },
-        { "id": 5, "facilityId": 3, "mineralId": 1, "mineralTons": 180 },
-        { "id": 6, "facilityId": 3, "mineralId": 3, "mineralTons": 250 }
-    ],
-    "planetMinerals": [
-        { "id": 1, "planetId": 1, "mineralId": 1, "mineralTons": 500 },
-        { "id": 2, "planetId": 1, "mineralId": 2, "mineralTons": 300 },
-        { "id": 3, "planetId": 2, "mineralId": 3, "mineralTons": 400 },
-        { "id": 4, "planetId": 2, "mineralId": 4, "mineralTons": 600 },
-        { "id": 5, "planetId": 3, "mineralId": 1, "mineralTons": 700 },
-        { "id": 6, "planetId": 3, "mineralId": 2, "mineralTons": 450 }
-    ]
-  }
+  "governors": [
+    {
+      "id": 1,
+      "name": "Whiskers McFluff",
+      "active": true,
+      "planetId": 1
+    },
+    {
+      "id": 2,
+      "name": "Captain Quackington",
+      "active": false,
+      "planetId": 2
+    },
+    {
+      "id": 3,
+      "name": "Professor Wobblepants",
+      "active": true,
+      "planetId": 3
+    },
+    {
+      "id": 4,
+      "name": "Baron Von Bubbles",
+      "active": false,
+      "planetId": 1
+    },
+    {
+      "id": 5,
+      "name": "Sir Snugglebottom",
+      "active": true,
+      "planetId": 2
+    },
+    {
+      "id": 6,
+      "name": "Doctor Wiggletoes",
+      "active": false,
+      "planetId": 3
+    }
+  ],
+  "facilities": [
+    {
+      "id": 1,
+      "name": "Fluffy Cloud Factory",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Bubblegum Lab",
+      "active": false
+    },
+    {
+      "id": 3,
+      "name": "Rainbow Springs Center",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Silly Sausage Station",
+      "active": false
+    },
+    {
+      "id": 5,
+      "name": "Giggles and Grins Facility",
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Whoopee Cushion Factory",
+      "active": false
+    }
+  ],
+  "minerals": [
+    {
+      "id": 1,
+      "name": "Giggleite"
+    },
+    {
+      "id": 2,
+      "name": "Snortium"
+    },
+    {
+      "id": 3,
+      "name": "Chucklestone"
+    },
+    {
+      "id": 4,
+      "name": "Lolite"
+    },
+    {
+      "id": 5,
+      "name": "Tickletonite"
+    },
+    {
+      "id": 6,
+      "name": "Hilarium"
+    }
+  ],
+  "planets": [
+    {
+      "id": 1,
+      "name": "Laughalotia"
+    },
+    {
+      "id": 2,
+      "name": "Jokelandia"
+    },
+    {
+      "id": 3,
+      "name": "GiggleSphere"
+    },
+    {
+      "id": 4,
+      "name": "Smiletopia"
+    },
+    {
+      "id": 5,
+      "name": "Chuckleville"
+    },
+    {
+      "id": 6,
+      "name": "Snickerland"
+    }
+  ],
+  "facilityMinerals": [
+    {
+      "id": 1,
+      "facilityId": 1,
+      "mineralId": 1,
+      "mineralTons": 99
+    },
+    {
+      "id": 2,
+      "facilityId": 1,
+      "mineralId": 2,
+      "mineralTons": 200
+    },
+    {
+      "id": 3,
+      "facilityId": 2,
+      "mineralId": 2,
+      "mineralTons": 150
+    },
+    {
+      "id": 4,
+      "facilityId": 2,
+      "mineralId": 3,
+      "mineralTons": 120
+    },
+    {
+      "id": 5,
+      "facilityId": 3,
+      "mineralId": 1,
+      "mineralTons": 180
+    },
+    {
+      "id": 6,
+      "facilityId": 3,
+      "mineralId": 3,
+      "mineralTons": 250
+    }
+  ],
+  "planetMinerals": [
+    {
+      "id": 1,
+      "planetId": 1,
+      "mineralId": 1,
+      "mineralTons": 501
+    },
+    {
+      "id": 2,
+      "planetId": 1,
+      "mineralId": 2,
+      "mineralTons": 300
+    },
+    {
+      "id": 3,
+      "planetId": 2,
+      "mineralId": 3,
+      "mineralTons": 400
+    },
+    {
+      "id": 4,
+      "planetId": 2,
+      "mineralId": 4,
+      "mineralTons": 600
+    },
+    {
+      "id": 5,
+      "planetId": 3,
+      "mineralId": 1,
+      "mineralTons": 700
+    },
+    {
+      "id": 6,
+      "planetId": 3,
+      "mineralId": 2,
+      "mineralTons": 450
+    }
+  ]
+}
