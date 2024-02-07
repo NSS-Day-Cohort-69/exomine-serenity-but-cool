@@ -3,33 +3,28 @@ let transaction = {
     planetMineral: null
 }
 
-export const updatePlanetMineral = (newPlanetMineral) =>
-{
+export const updatePlanetMineral = (newPlanetMineral) => {
     transaction.planetMineral = newPlanetMineral
 }
 
-export const updateFacilityMineral = (newFacilityMineral) =>
-{
+export const updateFacilityMineral = (newFacilityMineral) => {
     transaction.facilityMineral = newFacilityMineral
 }
 
-export const getPlanetMineral = () =>
-{
+export const getPlanetMineral = () => {
     return transaction.planetMineral
 }
 
-export const getFacilityMineral = () =>
-{
+export const getFacilityMineral = () => {
     return transaction.facilityMineral
 }
 
-export const doTransaction = async () =>
-{
+export const doTransaction = async () => {
     transaction.facilityMineral.mineralTons--
     transaction.planetMineral.mineralTons++
-   
+
     //facility mineral
-    const facilityMineralOptions = 
+    const facilityMineralOptions =
     {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -38,10 +33,10 @@ export const doTransaction = async () =>
     const facilityMineralResponse = await fetch(`http://localhost:8088/facilityMinerals/${transaction.facilityMineral.id}`, facilityMineralOptions)
 
     //planet
-    const planetMineralOptions = 
+    const planetMineralOptions =
     {
         method: "PUT",
-        headers : { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(transaction.planetMineral)
     }
     const planetMineralResponse = await fetch(`http://localhost:8088/planetMinerals/${transaction.planetMineral.id}`, planetMineralOptions)
