@@ -9,7 +9,7 @@ import { getFacilityMineral, getPlanetMineral } from "../transaction.js"
 
 export const getSpaceCartHTML = async () => {
     const facilityMineral = getFacilityMineral()
-    const currentPlanet = getPlanetMineral()
+    const planetMineral = getPlanetMineral()
 
     //get facilityMinerals
     //get planets
@@ -24,8 +24,8 @@ export const getSpaceCartHTML = async () => {
     let spaceCartHTML = `<div class="space-cart">
      <h3 class="space-cart--header">Space Cart</h3>`
     if (facilityMineral != null) {
-        spaceCartHTML += `<p> 1 ton of ${facilityMineral.mineral.name} from ${currentPlanet.name}</p>`
-        debugger
+        spaceCartHTML += `<p> 1 ton of ${facilityMineral.mineral.name} from ${planetMineral.planet.name}</p>`
+     
     }
 
     spaceCartHTML += `<button class="space-cart--button">Purchase Mineral</button>
