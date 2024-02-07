@@ -6,11 +6,13 @@ let transaction = {
 export const updatePlanetMineral = (newPlanetMineral) =>
 {
     transaction.planetMineral = newPlanetMineral
+    delete transaction.planetMineral.mineral
 }
 
 export const updateFacilityMineral = (newFacilityMineral) =>
 {
     transaction.facilityMineral = newFacilityMineral
+    delete transaction.facilityMineral.mineral
 }
 
 export const getPlanetMineral = () =>

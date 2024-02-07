@@ -32,13 +32,12 @@ const render = async () =>
 
     //this is to test facility minerals
 
-    /*
+    
     const facilityMineralElement = document.querySelector(`.minerals-cart`)
     const spaceCart = facilityMineralElement.innerHTML
     const facilityMineralsHTML = await getFacilityMineralsHTML()
     facilityMineralElement.innerHTML = facilityMineralsHTML
     facilityMineralElement.innerHTML += spaceCart
-    */
 
     /*
     updateFacilityMineral({ id: 1, facilityId: 1, mineralId: 1, mineralTons: 100 })
@@ -48,3 +47,5 @@ const render = async () =>
 }
 
 render()
+
+document.addEventListener("domUpdated", render)

@@ -1,6 +1,9 @@
+import { updateFacilityMineral } from "../transaction.js"
 import { getFacilityMinerals } from "./facilityMineralsData.js"
 
-let currentFacilityId = -1
+let currentFacilityId = 1
+
+const renderEvent = new CustomEvent("domUpdated")
 
 export const getFacilityMineralsHTML = async () =>
 {
@@ -45,7 +48,7 @@ const getFacilityMineralHTML = (facilityMineral) =>
 {
     return `
         <div class="facility-minerals--mineral">
-            <input type="radio" id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}">
+            <input type="radio" name="mineral" data-type="mineral" data-facilityMineralId=${facilityMineral.id} id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}">
             <label for="${facilityMineral.mineral.name}">${facilityMineral.mineralTons} tons of ${facilityMineral.mineral.name}</label>
         </div>
     `
@@ -55,3 +58,22 @@ export const setCurrentFacility = (newFacilityId) =>
 {
     currentFacilityId = newFacilityId
 }
+
+document.addEventListener( "mouseup",
+    async (event) =>
+    {
+        const mineralElement = event.target
+        if(mineralElement.dataset.type === "mineral")
+        {
+            const facilityMinerals = await getFacilityMinerals()
+
+            const currentFacilityMineral = facilityMinerals.find(facilityMineral => facilityMineral.id == mineralElement.dataset.facilitymineralid)
+
+            const currentMineral = currentFacilityMineral.mineral
+
+            updateFacilityMineral(currentFacilityMineral)
+
+            document.dispatchEvent(renderEvent)
+        }
+    }
+)
