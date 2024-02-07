@@ -5,11 +5,11 @@
 // 
 // a function with an if statement that invokes a function that renders the facility mineral if it is not undefined 
 
-//import { getFacilityMineral, getPlanet } from "./transaction.js"
+import { getFacilityMineral, getPlanetMineral } from "./transaction.js"
 
 export const getSpaceCartHTML = async () => {
-    //const facilityMineral = getFacilityMineral()
-    //const currentPlanet = getPlanet()
+    const facilityMineral = getFacilityMineral()
+    const currentPlanet = getPlanetMineral()
 
     //get facilityMinerals
     //get planets
@@ -20,8 +20,6 @@ export const getSpaceCartHTML = async () => {
     //find facilityMineral instance in facilityMinerals
     //find planet instance in planets
 
-    const facilityMineral = { id: 1, facilityId: 1, mineralId: 1, mineralTons: 100, mineral: {id: 1, name: "Gigglium"} }
-    const currentPlanet = { id: 1, name: "Laughalotia" }
 
     let spaceCartHTML = `<div class="space-cart">
      <h3 class="space-cart--header">Space Cart</h3>`
