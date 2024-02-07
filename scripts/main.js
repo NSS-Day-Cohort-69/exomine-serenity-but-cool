@@ -48,3 +48,5 @@ const render = async () =>
 }
 
 render()
+
+document.addEventListener("domUpdated", render)
