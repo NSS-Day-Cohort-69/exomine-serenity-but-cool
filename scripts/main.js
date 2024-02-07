@@ -1,4 +1,4 @@
-import { getDropDownHTML } from "./drop-downs.js"
+import { getDropDownHTML } from "./dropDowns.js"
 
 const render = async () =>
 {
