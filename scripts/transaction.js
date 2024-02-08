@@ -12,20 +12,20 @@ export const updatePlanet = (newPlanet) =>
     planet = newPlanet
 }
 
-export const updateFacilityMineral = (newFacilityMineral) => {
+export const updateFacilityMineral = async (newFacilityMineral) => {
     transaction.facilityMineral = newFacilityMineral
 
     //if planet has been set
     if(planet)
     {
-        updatePlanetMineral()
+        await updatePlanetMineral()
     }
     
 }
 
-export const updatePlanetMineral = () =>
+export const updatePlanetMineral = async () =>
 {
-    const planetMinerals = getPlanetMinerals()
+    const planetMinerals = await getPlanetMineralData()
 
     const thisPlanetMineral = planetMinerals.find(planetMineral => planetMineral.mineralId === transaction.facilityMineral.mineralId && planetMineral.planetId === planet.id)
 
@@ -118,8 +118,6 @@ export const doTransaction = async () => {
 
         const planetMineralResponse = await fetch(`http://localhost:8088/planetMinerals`, planetMineralOptions)
     }
-
-    
 
     transaction = 
     {
