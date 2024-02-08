@@ -65,10 +65,8 @@ export const doTransaction = async () => {
         id: transaction.facilityMineral.id,
         facilityId: transaction.facilityMineral.facilityId,
         mineralId: transaction.facilityMineral.mineralId,
-        mineralTons: transaction.facilityMineral.mineralTons
+        mineralTons: transaction.facilityMineral.mineralTons -1
     }
-
-    cleanFacilityMineral.mineralTons--
 
     const facilityMineralOptions =
     {
