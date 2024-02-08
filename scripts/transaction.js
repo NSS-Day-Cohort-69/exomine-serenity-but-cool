@@ -1,3 +1,5 @@
+import { getPlanetMineralData } from "./planetMineralData.js"
+
 let transaction = {
     facilityMineral: null,
     planetMineral: null
@@ -11,6 +13,7 @@ export const updatePlanetMineral = (newPlanetMineral) => {
 export const updateFacilityMineral = (newFacilityMineral) => {
     transaction.facilityMineral = newFacilityMineral
     delete transaction.facilityMineral.mineral
+    
 }
 
 export const getPlanetMineral = () => {
