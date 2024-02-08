@@ -49,7 +49,7 @@ const getFacilityMineralHTML = (facilityMineral) =>
     return `
         <div class="facility-minerals--mineral">
             <input type="radio" name="mineral" data-type="mineral" data-facilityMineralId=${facilityMineral.id} id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}">
-            <label for="${facilityMineral.mineral.name}">${facilityMineral.mineralTons} tons of ${facilityMineral.mineral.name}</label>
+            <label>${facilityMineral.mineralTons} tons of ${facilityMineral.mineral.name}</label>
         </div>
     `
 }
