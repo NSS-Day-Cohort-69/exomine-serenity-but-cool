@@ -1,3 +1,4 @@
+import { updatePlanet } from "../transaction.js"
 import { getGovernors } from "./governorData.js"
 
 export const getGovernorsHTML = async () =>
@@ -8,14 +9,14 @@ export const getGovernorsHTML = async () =>
 
     let returnHTML = `
     <div class="governor">
-        <label for="governor--names" class="governor--label">Choose a governor</label>
-        <select name="governor--names" class="governor--select">
+        <label class="governor--label">Choose a governor</label>
+        <select name="governor--names" data-type="governor" class="governor--select">
     `
 
     for (const governor of filteredGovernors) 
     {
         returnHTML += `
-            <option class="governor--option" value="${governor.id}">${governor.name}</option>`
+            <option class="governor--option" value="${governor.planetId}">${governor.name}</option>`
     }
     returnHTML += `
         </select>
@@ -23,3 +24,48 @@ export const getGovernorsHTML = async () =>
 
     return returnHTML
 }
+
+document.addEventListener
+(
+    "change",
+    (event) =>
+    {
+        const governorElement = event.target
+        if(governorElement.dataset.type === "governor")
+        {
+            debugger
+            //const planets = getPlanets()
+            const planets = [
+                {
+                  "id": 1,
+                  "name": "Laughalotia"
+                },
+                {
+                  "id": 2,
+                  "name": "Jokelandia"
+                },
+                {
+                  "id": 3,
+                  "name": "GiggleSphere"
+                },
+                {
+                  "id": 4,
+                  "name": "Smiletopia"
+                },
+                {
+                  "id": 5,
+                  "name": "Chuckleville"
+                },
+                {
+                  "id": 6,
+                  "name": "Snickerland"
+                }
+            ]
+
+            const thisPlanet = planets.find(planet => planet.id == governorElement.value)
+
+            updatePlanet(thisPlanet)
+        }
+        
+    }
+)
