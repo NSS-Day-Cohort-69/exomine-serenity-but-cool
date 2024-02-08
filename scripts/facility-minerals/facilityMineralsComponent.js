@@ -1,7 +1,7 @@
 import { updateFacilityMineral } from "../transaction.js"
 import { getFacilityMinerals } from "./facilityMineralsData.js"
 
-let currentFacilityId = 1
+let currentFacilityId = -1
 
 const renderEvent = new CustomEvent("domUpdated")
 
