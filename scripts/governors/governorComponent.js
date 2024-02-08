@@ -1,3 +1,4 @@
+import { getPlanets } from "../planets/planetData.js"
 import { updatePlanet } from "../transaction.js"
 import { getGovernors } from "./governorData.js"
 
@@ -28,39 +29,12 @@ export const getGovernorsHTML = async () =>
 document.addEventListener
 (
     "change",
-    (event) =>
+    async (event) =>
     {
         const governorElement = event.target
         if(governorElement.dataset.type === "governor")
         {
-            debugger
-            //const planets = getPlanets()
-            const planets = [
-                {
-                  "id": 1,
-                  "name": "Laughalotia"
-                },
-                {
-                  "id": 2,
-                  "name": "Jokelandia"
-                },
-                {
-                  "id": 3,
-                  "name": "GiggleSphere"
-                },
-                {
-                  "id": 4,
-                  "name": "Smiletopia"
-                },
-                {
-                  "id": 5,
-                  "name": "Chuckleville"
-                },
-                {
-                  "id": 6,
-                  "name": "Snickerland"
-                }
-            ]
+            const planets = await getPlanets()
 
             const thisPlanet = planets.find(planet => planet.id == governorElement.value)
 
