@@ -1,27 +1,33 @@
 import { getPlanets } from "./planetData.js"
 import { getPlanetMineral } from "../transaction.js"
-import { getMinerals } from "../minerals/mineralsData.js"
-const planets = getPlanets()
-const minerals = getMinerals()
-export const getPlanetHtml = () => {
+import { getMinerals } from "../mineralsData.js"
+import { getPlanetMinerals } from "../planetMineralsData.js"
+
+const planets = await getPlanets()
+const minerals = await getMinerals()
+
+export const getPlanetHtml = async () => {
     
     const planetMineral = getPlanetMineral()
+    const planetMineralsData = await getPlanetMinerals()
     let planetsHtml = `<div class="planet">`
     for (const planet of planets) {
         if (planet.id == planetMineral.planetId) {
             planetsHtml += `<h2 class="planet--name">${planet.name} Minerals</h2>
-                            <ul class="planet--mineralsDiv">
-                            <li class="planet--mineral">${planetMineral.mineralTons}`
+                            <ul class="planet--mineralsDiv">`
+            for (const planetMinerals of planetMineralsData) {
+                if (planetMinerals.planetId == planet.id) {
+                    for (const mineral of minerals) {
+                        if (planetMinerals.mineralId == mineral.id) {
+                            planetsHtml += `<li class="planet--mineral">${planetMinerals.mineralTons} tons ${mineral.name}</li>`
+                        }
+                    }
+                }
+            }
         }
     }
-    for (const mineral of minerals) {
-        if (planetMineral.mineralId == mineral.id){
-            planetsHtml += `tons ${minerakl.name}</span>`
-        }
-    }
-    planetsHtml += `tons ${planetMineral.name}</span>`
 
-
+    
 
     planetsHtml += `</ul>
                 </div>`
