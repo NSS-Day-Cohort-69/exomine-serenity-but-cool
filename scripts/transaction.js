@@ -106,7 +106,7 @@ export const doTransaction = async () => {
             mineralId: transaction.facilityMineral.mineralId,
             mineralTons: 1
         }
-        debugger
+        
         const planetMineralOptions =
         {
             method: "POST",
