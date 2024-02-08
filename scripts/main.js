@@ -56,4 +56,3 @@ render()
 
 document.addEventListener("domUpdated", render)
 
-console.log(await getPlanetDropDownHTML())
