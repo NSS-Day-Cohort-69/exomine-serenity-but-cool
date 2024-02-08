@@ -12,12 +12,12 @@ const render = async () =>
     //this is for drop downs test
    
     
-    const dropDownsHTML = await getDropDownHTML()
-    const dropdownsPlanetElement = document.querySelector(".dropdowns-planet")
+    const dropDownsHTML = await getPlanetHtml()
+    const dropdownsPlanetElement = document.querySelector("#container")
     dropdownsPlanetElement.innerHTML = dropDownsHTML
   
     
-
+/*
     
     const dropdowns = document.querySelector(`.dropdowns`)
 
@@ -53,7 +53,7 @@ const render = async () =>
     // updateFacilityMineral({ id: 1, facilityId: 1, mineralId: 1, mineralTons: 100 })
     // updatePlanetMineral({ id: 1, planetId: 1, mineralId: 1, mineralTons: 500 })
     // doTransaction()
-    
+ */   
 }
 
 render()
