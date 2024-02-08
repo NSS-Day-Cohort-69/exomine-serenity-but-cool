@@ -7,6 +7,7 @@ import { getDropDownHTML } from "./dropDowns.js"
 import { doTransaction, updateFacilityMineral, updatePlanetMineral } from "./transaction.js"
 import { getPlanetDropDownHTML } from "./dropDownPlanet.js"
 import { getPlanetMineralData } from "./planetMineralData.js"
+import { getMineralCartHTML } from "./mineralCartComponent.js"
 
 const render = async () =>
 {
@@ -59,3 +60,6 @@ document.addEventListener("domUpdated", render)
 
 //testing getPlanetMineralData : 
 //console.log(await getPlanetMineralData())
+
+//testing getMineralCartHTML 
+//console.log( await getMineralCartHTML())
