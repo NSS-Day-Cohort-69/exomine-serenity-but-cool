@@ -1,11 +1,10 @@
-import { getFacilitiesHTML } from "./facilities/facilities.js"
 import { getFacilityMineralsHTML } from "./facility-minerals/facilityMineralsComponent.js"
 import { getFacilityMinerals } from "./facility-minerals/facilityMineralsData.js"
-import { getGovernorsHTML } from "./governors/governorComponent.js"
 import { getSpaceCartHTML } from "./spaceCart/spaceCartComponent.js"
 import { getDropDownHTML } from "./dropDowns.js"
 import { doTransaction, updateFacilityMineral, updatePlanetMineral } from "./transaction.js"
 import { getPlanetMineralData } from "./planetMineralData.js"
+import { getPlanetHtml } from "./planets/planetComponent.js"
 
 const render = async () =>
 {
@@ -14,23 +13,7 @@ const render = async () =>
     const dropDownsHTML = await getDropDownHTML()
     const dropdownsPlanetElement = document.querySelector(".dropdowns-planet")
     dropdownsPlanetElement.innerHTML = dropDownsHTML
-    */
-
-    /*
-    const dropdowns = document.querySelector(`.dropdowns`)
-
-    const governorsHTML = await getGovernorsHTML()
-    dropdowns.innerHTML += governorsHTML
-    */
-
-    
-    //this is to test facilities HTML
-    
-    /*
-    const facilitiesHTML = await getFacilitiesHTML()
-    const dropdownElement = document.querySelector(".dropdowns")
-    dropdownElement.innerHTML = facilitiesHTML  
-    */
+  
 
     const spaceCartContainer = document.querySelector(".minerals-cart")
     const spaceCartHTML = await getSpaceCartHTML()
