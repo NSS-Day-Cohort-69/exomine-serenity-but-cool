@@ -5,6 +5,7 @@ import { getGovernorsHTML } from "./governors/governorComponent.js"
 import { getSpaceCartHTML } from "./spaceCart/spaceCartComponent.js"
 import { getDropDownHTML } from "./dropDowns.js"
 import { doTransaction, updateFacilityMineral, updatePlanetMineral } from "./transaction.js"
+import { getPlanetDropDownHTML } from "./dropDownPlanet.js"
 
 const render = async () =>
 {
@@ -54,3 +55,5 @@ const render = async () =>
 render()
 
 document.addEventListener("domUpdated", render)
+
+console.log(await getPlanetDropDownHTML())
