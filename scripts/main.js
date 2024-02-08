@@ -61,4 +61,4 @@ document.addEventListener("domUpdated", render)
 //console.log(await getPlanetMineralData())
 
 //testing getMineralCartHTML 
-console.log( await getMineralCartHTML())
+//console.log( await getMineralCartHTML())
