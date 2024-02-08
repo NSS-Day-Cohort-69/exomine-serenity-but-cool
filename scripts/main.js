@@ -3,6 +3,7 @@ import { getFacilityMinerals } from "./facility-minerals/facilityMineralsData.js
 import { getSpaceCartHTML } from "./spaceCart/spaceCartComponent.js"
 import { getDropDownHTML } from "./dropDowns.js"
 import { doTransaction, updateFacilityMineral, updatePlanetMineral } from "./transaction.js"
+import { getPlanetDropDownHTML } from "./dropDownPlanet.js"
 import { getPlanetMineralData } from "./planetMineralData.js"
 import { getPlanetHtml } from "./planets/planetComponent.js"
 
