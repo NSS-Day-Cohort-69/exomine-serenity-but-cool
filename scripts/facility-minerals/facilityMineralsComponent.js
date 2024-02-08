@@ -1,4 +1,4 @@
-import { updateFacilityMineral } from "../transaction.js"
+import { getFacilityMineral, updateFacilityMineral } from "../transaction.js"
 import { getFacilityMinerals } from "./facilityMineralsData.js"
 
 let currentFacilityId = -1
@@ -9,7 +9,16 @@ export const getFacilityMineralsHTML = async () =>
 {
     const facilityMinerals = await getFacilityMinerals()
 
-    const facilityMineralsForFacility = facilityMinerals.filter(facilityMineral => facilityMineral.facilityId === currentFacilityId)
+    const currentFacilityMineral = getFacilityMineral()
+
+    let currentFacilityMineralId
+    if(currentFacilityMineral !== null)
+    {
+        currentFacilityMineralId = currentFacilityMineral.id
+    }
+    
+
+    const facilityMineralsForFacility = facilityMinerals.filter(facilityMineral => facilityMineral.facilityId == currentFacilityId)
 
     //this is the structure of the HTML
 
@@ -34,7 +43,7 @@ export const getFacilityMineralsHTML = async () =>
     <div class="facility-minerals--mineralsDiv">`
     for (const facilityMineral of facilityMineralsForFacility) 
     {
-        returnHTML += getFacilityMineralHTML(facilityMineral)
+        returnHTML += getFacilityMineralHTML(facilityMineral, currentFacilityMineralId == facilityMineral.id)
     }
     returnHTML += `
     </div>
@@ -44,19 +53,36 @@ export const getFacilityMineralsHTML = async () =>
     return returnHTML
 }
 
-const getFacilityMineralHTML = (facilityMineral) =>
+const getFacilityMineralHTML = (facilityMineral, isSelected) =>
 {
-    return `
+    if(isSelected)
+    {
+        return `
+        <div class="facility-minerals--mineral">
+            <input type="radio" name="mineral" data-type="mineral" data-facilityMineralId=${facilityMineral.id} id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}" checked >
+            <label>${facilityMineral.mineralTons} tons of ${facilityMineral.mineral.name}</label>
+        </div>
+    `
+    } else
+    {
+        return `
         <div class="facility-minerals--mineral">
             <input type="radio" name="mineral" data-type="mineral" data-facilityMineralId=${facilityMineral.id} id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}">
             <label>${facilityMineral.mineralTons} tons of ${facilityMineral.mineral.name}</label>
         </div>
     `
+    }
+    
 }
 
 export const setCurrentFacility = (newFacilityId) =>
 {
     currentFacilityId = newFacilityId
+}
+
+export const getCurrentFacility = () =>
+{
+    return currentFacilityId
 }
 
 document.addEventListener( "mouseup",
