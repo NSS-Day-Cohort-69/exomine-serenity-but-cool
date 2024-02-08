@@ -71,7 +71,7 @@ document.addEventListener( "mouseup",
 
             const currentMineral = currentFacilityMineral.mineral
 
-            updateFacilityMineral(currentFacilityMineral)
+            updateFacilityMineral(currentFacilityMineral) 
 
             document.dispatchEvent(renderEvent)
         }

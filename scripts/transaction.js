@@ -1,3 +1,5 @@
+import { getPlanetMineralData } from "./planetMineralData.js"
+
 let transaction = {
     facilityMineral: null,
     planetMineral: null
