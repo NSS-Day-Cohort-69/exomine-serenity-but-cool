@@ -8,7 +8,7 @@ const minerals = await getMinerals()
 
 export const getPlanetHtml = async () => {
     const planetMineral = getPlanetMineral()
-    let planetsHtml = `<div class="planet"><h2 class="planet--header">Colony Minerals</h2>`
+    let planetsHtml = `<div class="planet">`
     if (planetMineral !== null) {
         const planetMineralsData = await getPlanetMinerals()
         for (const planet of planets) {
