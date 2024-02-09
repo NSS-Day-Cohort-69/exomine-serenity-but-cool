@@ -1,9 +1,9 @@
 import { getPlanetMinerals } from "./planetMineralsData.js"
 
-let transaction = {
-    facilityMineral: null,
-    planetMineral: null
-}
+
+const facilityMinerals = []
+const planetMineral = []
+
 
 let planet = null
 
@@ -17,7 +17,8 @@ export const updatePlanet = async (newPlanet) =>
     }
 }
 
-export const updateFacilityMineral = async (newFacilityMineral) => {
+export const updateFacilityMineral = async (newFacilityMineral) => 
+{
     transaction.facilityMineral = newFacilityMineral
 
     //if planet has been set
@@ -26,6 +27,25 @@ export const updateFacilityMineral = async (newFacilityMineral) => {
         await updatePlanetMineral()
     }
     
+}
+
+export const addFacilityMineral = async (newFacilityMineral) =>
+{
+    facilityMinerals.push(newFacilityMineral)
+}
+
+export const removeFacilityMineral = (removeFacilityMineralId) =>
+{
+    const facilityMineral = facilityMinerals.find(facilityMineral => facilityMineral.id === removeFacilityMineralId)
+    if(facilityMineral !== undefined)
+    {
+        const index = facilityMinerals.indexOf(facilityMineral)
+
+        if(index >= 0)
+        {
+            facilityMinerals.splice(index, 1)
+        }
+    }
 }
 
 export const updatePlanetMineral = async () =>

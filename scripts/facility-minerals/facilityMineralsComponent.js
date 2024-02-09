@@ -1,4 +1,4 @@
-import { getFacilityMineral, updateFacilityMineral } from "../transaction.js"
+import { addFacilityMineral, removeFacilityMineral } from "../transaction.js"
 import { getFacilityMinerals } from "./facilityMineralsData.js"
 
 let currentFacilityId = -1
