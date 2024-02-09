@@ -59,7 +59,7 @@ const getFacilityMineralHTML = (facilityMineral, isSelected) =>
     {
         return `
         <div class="facility-minerals--mineral">
-            <input type="radio" name="mineral" data-type="mineral" data-facilityMineralId=${facilityMineral.id} id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}" checked >
+            <input type="checkbox" name="mineral" data-type="mineral" data-facilityMineralId=${facilityMineral.id} id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}" checked >
             <label>${facilityMineral.mineralTons} tons of ${facilityMineral.mineral.name}</label>
         </div>
     `
@@ -67,7 +67,7 @@ const getFacilityMineralHTML = (facilityMineral, isSelected) =>
     {
         return `
         <div class="facility-minerals--mineral">
-            <input type="radio" name="mineral" data-type="mineral" data-facilityMineralId=${facilityMineral.id} id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}">
+            <input type="checkbox" name="mineral" data-type="mineral" data-facilityMineralId=${facilityMineral.id} id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}">
             <label>${facilityMineral.mineralTons} tons of ${facilityMineral.mineral.name}</label>
         </div>
     `
