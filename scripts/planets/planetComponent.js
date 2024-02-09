@@ -7,7 +7,6 @@ const planets = await getPlanets()
 const minerals = await getMinerals()
 
 export const getPlanetHTML = async () => {
-    //debugger
     const planet = getPlanet()
     const planetMinerals = await getPlanetMinerals()
 

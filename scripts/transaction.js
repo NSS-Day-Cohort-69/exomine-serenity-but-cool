@@ -1,9 +1,8 @@
 import { getPlanetMinerals } from "./planetMineralsData.js"
+import { postObject, putObject } from "./utils.js"
 
-
-const facilityMinerals = []
-const planetMineral = []
-
+let currentFacilityMinerals = []
+let currentPlanetMinerals = []
 
 let planet = null
 
@@ -11,65 +10,60 @@ export const updatePlanet = async (newPlanet) =>
 {
     planet = newPlanet
 
-    if(transaction.facilityMineral !== null && planet !== null)
-    {
-        await updatePlanetMineral()
-    }
-}
-
-export const updateFacilityMineral = async (newFacilityMineral) => 
-{
-    transaction.facilityMineral = newFacilityMineral
-
-    //if planet has been set
-    if(planet !== null && transaction.facilityMineral !== null)
-    {
-        await updatePlanetMineral()
-    }
-    
+    await updatePlanetMinerals()
 }
 
 export const addFacilityMineral = async (newFacilityMineral) =>
 {
-    facilityMinerals.push(newFacilityMineral)
+    currentFacilityMinerals.push(newFacilityMineral)
+    await updatePlanetMinerals()
 }
 
-export const removeFacilityMineral = (removeFacilityMineralId) =>
+export const removeFacilityMineral = async (removeFacilityMineralId) =>
 {
-    const facilityMineral = facilityMinerals.find(facilityMineral => facilityMineral.id === removeFacilityMineralId)
+    const facilityMineral = currentFacilityMinerals.find(facilityMineral => facilityMineral.id === removeFacilityMineralId)
     if(facilityMineral !== undefined)
     {
-        const index = facilityMinerals.indexOf(facilityMineral)
+        const index = currentFacilityMinerals.indexOf(facilityMineral)
 
         if(index >= 0)
         {
-            facilityMinerals.splice(index, 1)
+            currentFacilityMinerals.splice(index, 1)
         }
     }
+    await updatePlanetMinerals()
 }
 
-export const updatePlanetMineral = async () =>
+export const updatePlanetMinerals = async () =>
 {
-    const planetMinerals = await getPlanetMinerals()
-    
-    const thisPlanetMineral = planetMinerals.find(planetMineral => planetMineral.mineralId === transaction.facilityMineral.mineralId && planetMineral.planetId === planet.id)
-
-    //if there was not a planetMineral that meets condition, find will return undefined.
-    if (thisPlanetMineral != undefined)
+    if(planet === null)
     {
-        transaction.planetMineral = thisPlanetMineral
-    } else
-    {
-        transaction.planetMineral = null
+        currentPlanetMinerals = []
+        return
     }
+
+    const planetMinerals = await getPlanetMinerals()
+
+    const newPlanetMinerals = []
+    for (const facilityMineral of currentFacilityMinerals) 
+    {
+        const thisPlanetMineral = planetMinerals.find(planetMineral => planetMineral.mineralId === facilityMineral.mineralId && planetMineral.planetId === planet.id)
+    
+        //if there was not a planetMineral that meets condition, find will return undefined.
+        if (thisPlanetMineral != undefined)
+        {
+            newPlanetMinerals.push(thisPlanetMineral)
+        }
+    }
+    currentPlanetMinerals = newPlanetMinerals
 }
 
 export const getPlanetMineral = () => {
     return transaction.planetMineral
 }
 
-export const getFacilityMineral = () => {
-    return transaction.facilityMineral
+export const getCurrentFacilityMinerals = () => {
+    return currentFacilityMinerals
 }
 
 export const getPlanet = () =>{
@@ -79,12 +73,67 @@ export const getPlanet = () =>{
 export const transactionIsValid = () =>
 {
     //this returns true if neither of facility mineral and planet mineral are null (null evaluates to false in boolean operations, objects evaluate to true). the transaction also isnt valid if the facility is out of the mineral.
-    return transaction.facilityMineral != null && planet != null && transaction.facilityMineral.mineralTons > 0
+    return currentFacilityMinerals.length > 0 && planet != null && currentFacilityMinerals.find(facilityMineral => facilityMineral.mineralTons <= 0) === undefined
 }
 
-export const doTransaction = async () => {
-    transaction.facilityMineral.mineralTons--
+const removeExtendsFromFacilityMineral = (facilityMineral) =>
+{
+    return {
+        id: facilityMineral.id,
+        facilityId: facilityMineral.facilityId,
+        mineralId: facilityMineral.mineralId,
+        mineralTons: facilityMineral.mineralTons
+    }
+}
+
+const removeExtendsFromPlanetMineral = (planetMineral) =>
+{
+    return {
+        id: planetMineral.id,
+        planetId: planetMineral.planetId,
+        mineralId: planetMineral.mineralId,
+        mineralTons: planetMineral.mineralTons
+    }
+}
+
+export const doTransaction = async () => 
+{
+
+    for (const facilityMineral of currentFacilityMinerals) 
+    {
+        facilityMineral.mineralTons--
+        const cleanFacilityMineral = removeExtendsFromFacilityMineral(facilityMineral)
+        
+        putObject(cleanFacilityMineral, "facilityMinerals")
+
+        const associatedPlanetMineral = currentPlanetMinerals.find(planetMineral => planetMineral.mineralId === facilityMineral.mineralId)
+
+        debugger
+
+        if(associatedPlanetMineral !== undefined)
+        {
+            associatedPlanetMineral.mineralTons++
+
+            const cleanPlanetMineral = removeExtendsFromPlanetMineral(associatedPlanetMineral)
     
+            putObject(cleanPlanetMineral, "planetMinerals")
+        } else 
+        {//planetMineral doesn't exist, so create a new one
+            
+            const newPlanetMineralObject = 
+            {
+                planetId: planet.id,
+                mineralId: facilityMineral.mineralId,
+                mineralTons: 1
+            }
+            
+            await postObject(newPlanetMineralObject, "planetMinerals")
+
+            await updatePlanetMinerals()
+        }
+    }
+
+    /*
     //this is to remove any expands, since the contents of this is going into the database and we dont want the expands in the database.
     const cleanFacilityMineral = 
     {
@@ -149,4 +198,5 @@ export const doTransaction = async () => {
 
         updatePlanetMineral()
     }
+    */
 }

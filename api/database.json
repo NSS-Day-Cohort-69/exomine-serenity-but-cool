@@ -21,13 +21,13 @@
     {
       "id": 4,
       "name": "Baron Von Bubbles",
-      "active": false,
-      "planetId": 1
+      "active": true,
+      "planetId": 4
     },
     {
       "id": 5,
       "name": "Sir Snugglebottom",
-      "active": true,
+      "active": false,
       "planetId": 2
     },
     {
@@ -126,37 +126,55 @@
       "id": 1,
       "facilityId": 1,
       "mineralId": 1,
-      "mineralTons": 0
+      "mineralTons": 270
     },
     {
       "id": 2,
       "facilityId": 1,
       "mineralId": 2,
-      "mineralTons": 0
+      "mineralTons": 306
     },
     {
       "id": 3,
       "facilityId": 2,
       "mineralId": 2,
-      "mineralTons": 150
+      "mineralTons": 140
     },
     {
       "id": 4,
       "facilityId": 2,
       "mineralId": 3,
-      "mineralTons": 120
+      "mineralTons": 114
     },
     {
       "id": 5,
       "facilityId": 3,
       "mineralId": 1,
-      "mineralTons": 113
+      "mineralTons": 67
     },
     {
       "id": 6,
       "facilityId": 3,
       "mineralId": 3,
-      "mineralTons": 218
+      "mineralTons": 187
+    },
+    {
+      "id": 7,
+      "facilityId": 5,
+      "mineralId": 4,
+      "mineralTons": 195
+    },
+    {
+      "id": 8,
+      "facilityId": 5,
+      "mineralId": 5,
+      "mineralTons": 406
+    },
+    {
+      "id": 9,
+      "facilityId": 5,
+      "mineralId": 6,
+      "mineralTons": 12688
     }
   ],
   "planetMinerals": [
@@ -164,43 +182,31 @@
       "id": 1,
       "planetId": 1,
       "mineralId": 2,
-      "mineralTons": 212
+      "mineralTons": 242
     },
     {
-      "id": 2,
-      "planetId": 1,
-      "mineralId": 1,
-      "mineralTons": 276
-    },
-    {
-      "id": 3,
-      "planetId": 2,
+      "id": 8,
+      "planetId": 3,
       "mineralId": 3,
-      "mineralTons": 408
+      "mineralTons": 15
     },
     {
-      "id": 4,
-      "planetId": 2,
-      "mineralId": 4,
-      "mineralTons": 600
-    },
-    {
-      "id": 5,
-      "planetId": 3,
-      "mineralId": 1,
-      "mineralTons": 784
-    },
-    {
-      "id": 6,
-      "planetId": 3,
-      "mineralId": 2,
-      "mineralTons": 631
-    },
-    {
-      "id": 7,
-      "planetId": 2,
+      "id": 9,
+      "planetId": 4,
       "mineralId": 1,
       "mineralTons": 18
+    },
+    {
+      "id": 11,
+      "planetId": 3,
+      "mineralId": 6,
+      "mineralTons": 11
+    },
+    {
+      "id": 12,
+      "planetId": 4,
+      "mineralId": 3,
+      "mineralTons": 2
     }
   ]
 }

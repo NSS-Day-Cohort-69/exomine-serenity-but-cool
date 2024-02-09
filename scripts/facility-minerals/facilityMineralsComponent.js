@@ -1,4 +1,4 @@
-import { addFacilityMineral, removeFacilityMineral } from "../transaction.js"
+import { getCurrentFacilityMinerals, addFacilityMineral, removeFacilityMineral } from "../transaction.js"
 import { getFacilityMinerals } from "./facilityMineralsData.js"
 
 let currentFacilityId = -1
@@ -9,14 +9,7 @@ export const getFacilityMineralsHTML = async () =>
 {
     const facilityMinerals = await getFacilityMinerals()
 
-    const currentFacilityMineral = getFacilityMineral()
-
-    let currentFacilityMineralId
-    if(currentFacilityMineral !== null)
-    {
-        currentFacilityMineralId = currentFacilityMineral.id
-    }
-    
+    const currentFacilityMinerals = getCurrentFacilityMinerals()
 
     const facilityMineralsForFacility = facilityMinerals.filter(facilityMineral => facilityMineral.facilityId == currentFacilityId)
 
@@ -43,13 +36,14 @@ export const getFacilityMineralsHTML = async () =>
     <div class="facility-minerals--mineralsDiv">`
     for (const facilityMineral of facilityMineralsForFacility) 
     {
-        returnHTML += getFacilityMineralHTML(facilityMineral, currentFacilityMineralId == facilityMineral.id)
+        const facilityMineralInCurrentFacilityMinerals = currentFacilityMinerals.find(curFacilityMineral => curFacilityMineral.id === facilityMineral.id) !== undefined
+        returnHTML += getFacilityMineralHTML(facilityMineral, facilityMineralInCurrentFacilityMinerals)
     }
     returnHTML += `
     </div>
 </div>
     `
-
+    
     return returnHTML
 }
 
@@ -59,7 +53,7 @@ const getFacilityMineralHTML = (facilityMineral, isSelected) =>
     {
         return `
         <div class="facility-minerals--mineral">
-            <input type="checkbox" name="mineral" data-type="mineral" data-facilityMineralId=${facilityMineral.id} id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}" checked >
+            <input type="checkbox" name="mineral" data-type="mineral" data-facilityMineralId="${facilityMineral.id}" id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}" checked >
             <label>${facilityMineral.mineralTons} tons of ${facilityMineral.mineral.name}</label>
         </div>
     `
@@ -67,7 +61,7 @@ const getFacilityMineralHTML = (facilityMineral, isSelected) =>
     {
         return `
         <div class="facility-minerals--mineral">
-            <input type="checkbox" name="mineral" data-type="mineral" data-facilityMineralId=${facilityMineral.id} id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}">
+            <input type="checkbox" name="mineral" data-type="mineral" data-facilityMineralId="${facilityMineral.id}" id="${facilityMineral.mineral.name}" value="${facilityMineral.mineral.name}">
             <label>${facilityMineral.mineralTons} tons of ${facilityMineral.mineral.name}</label>
         </div>
     `
@@ -85,20 +79,21 @@ export const getCurrentFacility = () =>
     return currentFacilityId
 }
 
-document.addEventListener( "mouseup",
+document.addEventListener( "change",
     async (event) =>
     {
         const mineralElement = event.target
         if(mineralElement.dataset.type === "mineral")
         {
             const facilityMinerals = await getFacilityMinerals()
-
-            const currentFacilityMineral = facilityMinerals.find(facilityMineral => facilityMineral.id == mineralElement.dataset.facilitymineralid)
-
-            const currentMineral = currentFacilityMineral.mineral
-
-            await updateFacilityMineral(currentFacilityMineral) 
-
+            const thisFacilityMineral = facilityMinerals.find(facilityMineral => facilityMineral.id == mineralElement.dataset.facilitymineralid)
+            if(mineralElement.checked)
+            {
+                addFacilityMineral(thisFacilityMineral)
+            } else
+            { 
+                removeFacilityMineral(thisFacilityMineral.id)
+            }
             document.dispatchEvent(renderEvent)
         }
     }

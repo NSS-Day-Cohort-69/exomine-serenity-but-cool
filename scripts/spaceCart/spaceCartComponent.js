@@ -1,22 +1,15 @@
-import { doTransaction, getFacilityMineral, getPlanet, transactionIsValid } from "../transaction.js"
+import { doTransaction, getCurrentFacilityMinerals, transactionIsValid } from "../transaction.js"
 
 const renderEvent = new CustomEvent("domUpdated")
 
 export const getSpaceCartHTML = async () => {
-    const facilityMineral = getFacilityMineral()
-
-    //get facilityMinerals
-    //get planets
-
-    //get current facilityMineralId from transaction
-    //get current planet from transaction
-
-    //find facilityMineral instance in facilityMinerals
-    //find planet instance in planets
+    const facilityMinerals = getCurrentFacilityMinerals()
 
     let spaceCartHTML = `<div class="space-cart">
      <h3 class="space-cart--header">Space Cart</h3>`
-    if (facilityMineral != null) {
+    
+    for (const facilityMineral of facilityMinerals) 
+    {
         spaceCartHTML += `<p> 1 ton of ${facilityMineral.mineral.name} from ${facilityMineral.facility.name}</p>`
     }
 
@@ -29,14 +22,14 @@ export const getSpaceCartHTML = async () => {
 
 document.addEventListener(
     "mouseup",
-    (event) =>
+    async (event) =>
     {
         const spaceCartElement = event.target
         if(spaceCartElement.dataset.type === "spaceCart")
         {
             if(transactionIsValid())
             {
-                doTransaction()
+                await doTransaction()
             } else
             {
                 window.alert("Transaction invalid. Either form is not complete or the facility is out of the chosen mineral.")
