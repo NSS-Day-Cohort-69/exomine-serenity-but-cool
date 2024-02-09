@@ -1,5 +1,4 @@
 import { getCurrentFacility, setCurrentFacility } from "../facility-minerals/facilityMineralsComponent.js"
-import { updateFacilityMineral } from "../transaction.js"
 import { getFacilities } from "./facilitiesData.js"
 
 const renderEvent = new CustomEvent("domUpdated")
@@ -48,7 +47,6 @@ document.addEventListener(
         if(facilityElement.dataset.type === "facility")
         {
             setCurrentFacility(facilityElement.value)
-            updateFacilityMineral(null)
 
             document.dispatchEvent(renderEvent)
         }
