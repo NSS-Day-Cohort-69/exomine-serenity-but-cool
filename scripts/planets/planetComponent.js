@@ -14,20 +14,20 @@ export const getPlanetHTML = async () => {
     let planetsHtml = `
     <div class="planet">`
 
-    if(planet != null)
-    {
+    if (planet != null) {
         const planetMineralsForThisPlanet = planetMinerals.filter(planetMineral => planetMineral.planetId === planet.id)
 
         planetsHtml += `
             <h2 class="planet--name">${planet.name} Minerals</h2>
             <ul class="planet--mineralsDiv">`
 
-        for (const planetMineral of planetMineralsForThisPlanet) 
-        {
+        for (const planetMineral of planetMineralsForThisPlanet) {
             planetsHtml += `<li class="planet--mineral">${planetMineral.mineralTons} tons ${planetMineral.mineral.name}</li>`
         }
-        
+
         planetsHtml += `</ul>`
+    } else {
+        planetsHtml += `<h2>Colony Minerals</h2>`
     }
 
     planetsHtml += `</div>`
