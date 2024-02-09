@@ -1,14 +1,39 @@
 import { getPlanets } from "./planetData.js"
-import { getPlanetMineral } from "../transaction.js"
+import { getPlanet } from "../transaction.js"
 import { getMinerals } from "../mineralsData.js"
 import { getPlanetMinerals } from "../planetMineralsData.js"
 
 const planets = await getPlanets()
 const minerals = await getMinerals()
 
-export const getPlanetHtml = async () => {
-    const planetMineral = getPlanetMineral()
-    let planetsHtml = `<div class="planet">`
+export const getPlanetHTML = async () => {
+    //debugger
+    const planet = getPlanet()
+    const planetMinerals = await getPlanetMinerals()
+
+    let planetsHtml = `
+    <div class="planet">`
+
+    if(planet != null)
+    {
+        const planetMineralsForThisPlanet = planetMinerals.filter(planetMineral => planetMineral.planetId === planet.id)
+
+        planetsHtml += `
+            <h2 class="planet--name">${planet.name} Minerals</h2>
+            <ul class="planet--mineralsDiv">`
+
+        for (const planetMineral of planetMineralsForThisPlanet) 
+        {
+            planetsHtml += `<li class="planet--mineral">${planetMineral.mineralTons} tons ${planetMineral.mineral.name}</li>`
+        }
+        
+        planetsHtml += `</ul>`
+    }
+
+    planetsHtml += `</div>`
+    return planetsHtml
+
+    /*
     if (planetMineral !== null) {
         const planetMineralsData = await getPlanetMinerals()
         for (const planet of planets) {
@@ -34,6 +59,5 @@ export const getPlanetHtml = async () => {
         return planetsHtml
         
     }
-    planetsHtml += `</div>`
-    return planetsHtml
+    */
 }

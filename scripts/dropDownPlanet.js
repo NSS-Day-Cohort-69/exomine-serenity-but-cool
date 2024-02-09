@@ -1,5 +1,5 @@
 import { getDropDownHTML } from "./dropDowns.js"
-import { getPlanetHtml } from "./planets/planetComponent.js"
+import { getPlanetHTML } from "./planets/planetComponent.js"
 
 export const getPlanetDropDownHTML = async () => {
     const dropdownHTML = await getDropDownHTML()
