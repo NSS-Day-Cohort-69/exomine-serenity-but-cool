@@ -1,5 +1,7 @@
 import { doTransaction, getFacilityMineral, getPlanet, transactionIsValid } from "../transaction.js"
 
+const renderEvent = new CustomEvent("domUpdated")
+
 export const getSpaceCartHTML = async () => {
     const facilityMineral = getFacilityMineral()
 
@@ -39,6 +41,8 @@ document.addEventListener(
             {
                 window.alert("Transaction invalid. Either form is not complete or the facility is out of the chosen mineral.")
             }
+
+            document.dispatchEvent(renderEvent)
         }
     }
 )

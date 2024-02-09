@@ -126,13 +126,13 @@
       "id": 1,
       "facilityId": 1,
       "mineralId": 1,
-      "mineralTons": 99
+      "mineralTons": 74
     },
     {
       "id": 2,
       "facilityId": 1,
       "mineralId": 2,
-      "mineralTons": 200
+      "mineralTons": 180
     },
     {
       "id": 3,
@@ -150,33 +150,33 @@
       "id": 5,
       "facilityId": 3,
       "mineralId": 1,
-      "mineralTons": 180
+      "mineralTons": 113
     },
     {
       "id": 6,
       "facilityId": 3,
       "mineralId": 3,
-      "mineralTons": 250
+      "mineralTons": 218
     }
   ],
   "planetMinerals": [
     {
       "id": 1,
       "planetId": 1,
-      "mineralId": 1,
-      "mineralTons": 501
+      "mineralId": 2,
+      "mineralTons": 212
     },
     {
       "id": 2,
       "planetId": 1,
-      "mineralId": 2,
-      "mineralTons": 300
+      "mineralId": 1,
+      "mineralTons": 276
     },
     {
       "id": 3,
       "planetId": 2,
       "mineralId": 3,
-      "mineralTons": 400
+      "mineralTons": 408
     },
     {
       "id": 4,
@@ -188,13 +188,19 @@
       "id": 5,
       "planetId": 3,
       "mineralId": 1,
-      "mineralTons": 700
+      "mineralTons": 710
     },
     {
       "id": 6,
       "planetId": 3,
       "mineralId": 2,
-      "mineralTons": 450
+      "mineralTons": 451
+    },
+    {
+      "id": 7,
+      "planetId": 2,
+      "mineralId": 1,
+      "mineralTons": 18
     }
   ]
 }
